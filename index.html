@@ -3,33 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dudeocode | Find Pattern - Pattern Matching Game</title>
+    <title>Dudeocode | Find Pattern - Official Site</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0f172a; color: white; }
         .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-node { display: none; }
+        .lang-active { display: block; }
     </style>
 </head>
 <body class="font-sans antialiased">
-    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <h1 class="text-2xl font-bold gradient-text">Dudeocode</h1>
-        <div class="space-x-4">
-            <a href="#about" class="hover:text-sky-400 transition">About</a>
-            <a href="#game" class="hover:text-sky-400 transition">Game</a>
-            <a href="#contact" class="hover:text-sky-400 transition">Contact</a>
+    <nav class="sticky top-0 bg-[#0f172a]/80 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="p-6 flex justify-between items-center max-w-6xl mx-auto">
+            <h1 class="text-2xl font-bold gradient-text">Dudeocode</h1>
+            
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex space-x-4 text-sm">
+                    <span class="lang-node lang-active ko-text">
+                        <a href="#about" class="hover:text-sky-400 transition mr-4">소개</a>
+                        <a href="#game" class="hover:text-sky-400 transition mr-4">게임</a>
+                        <a href="#contact" class="hover:text-sky-400 transition">문의</a>
+                    </span>
+                    <span class="lang-node en-text">
+                        <a href="#about" class="hover:text-sky-400 transition mr-4">About</a>
+                        <a href="#game" class="hover:text-sky-400 transition mr-4">Game</a>
+                        <a href="#contact" class="hover:text-sky-400 transition">Contact</a>
+                    </span>
+                </div>
+
+                <div class="flex bg-slate-800 p-1 rounded-lg border border-slate-700">
+                    <button onclick="setLang('ko')" id="btn-ko" class="px-3 py-1 rounded-md text-xs font-bold transition-all bg-sky-500 text-white shadow-sm">
+                        🇰🇷 KR
+                    </button>
+                    <button onclick="setLang('en')" id="btn-en" class="px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-400 hover:text-white">
+                        🇺🇸 EN
+                    </button>
+                </div>
+            </div>
         </div>
     </nav>
 
     <header id="about" class="py-20 px-6 text-center max-w-4xl mx-auto">
-        <h2 class="text-5xl font-extrabold mb-6 leading-tight">Observe. Identify.<br> Match the Pattern.</h2>
-        <p class="text-gray-400 text-xl mb-8">무작위로 생성되는 그리드 속에서 목표 패턴을 빠르게 찾으세요. <br>당신의 눈과 손의 반응 속도만을 시험하는 가장 정교한 퍼즐 게임.</p>
-        <div class="flex justify-center space-x-4">
-            <span class="bg-sky-500/10 text-sky-400 px-4 py-2 rounded-full border border-sky-500/20 text-sm font-medium">#Find</span>
-            <span class="bg-indigo-500/10 text-indigo-400 px-4 py-2 rounded-full border border-indigo-500/20 text-sm font-medium">#Pattern</span>
+        <div class="lang-node lang-active ko-text">
+            <h2 class="text-5xl font-extrabold mb-6 leading-tight">관찰하고. 찾아보고.<br>패턴을 선택한다.</h2>
+            <p class="text-gray-400 text-xl mb-8">무작위로 생성되는 그리드 속에서 목표 패턴을 빠르게 찾으세요. <br>당신의 눈과 손의 반응 속도만을 시험하는 가장 정교한 퍼즐 게임.</p>
+            <div class="flex justify-center space-x-4">
+                <span class="bg-sky-500/10 text-sky-400 px-4 py-2 rounded-full border border-sky-500/20 text-sm font-medium">#패턴찾기</span>
+                <span class="bg-indigo-500/10 text-indigo-400 px-4 py-2 rounded-full border border-indigo-500/20 text-sm font-medium">#집중력게임</span>
+            </div>
+        </div>
+        <div class="lang-node en-text">
+            <h2 class="text-5xl font-extrabold mb-6 leading-tight">Observe. Identify.<br> Match the Pattern.</h2>
+            <p class="text-gray-400 text-xl mb-8">Find target patterns quickly within randomly generated grids. <br>A sophisticated puzzle game testing your visual and manual reaction speed.</p>
+            <div class="flex justify-center space-x-4">
+                <span class="bg-sky-500/10 text-sky-400 px-4 py-2 rounded-full border border-sky-500/20 text-sm font-medium">#FindPattern</span>
+                <span class="bg-indigo-500/10 text-indigo-400 px-4 py-2 rounded-full border border-indigo-500/20 text-sm font-medium">#FocusGame</span>
+            </div>
         </div>
     </header>
 
-<section id="game" class="py-20 px-6 max-w-6xl mx-auto">
+    <section id="game" class="py-20 px-6 max-w-6xl mx-auto">
         <h3 class="text-3xl font-bold mb-12 text-center gradient-text">Find Pattern</h3>
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="bg-slate-800/50 rounded-2xl border border-slate-700 aspect-[9/16] flex items-center justify-center overflow-hidden shadow-2xl">
@@ -37,22 +70,32 @@
             </div>
 
             <div class="space-y-6">
-                <h4 class="text-3xl font-bold text-sky-400">Shape, Color, Direction. <br>Match Pattern.</h4>
-                <p class="text-gray-300 text-lg">화면 상단에 제시된 패턴을 그리드 내에서 찾아 터치하거나 드래그하세요. 
-                    스테이지가 거듭될수록 그리드는 복잡해지고, 당신의 집중력은 한계에 도달합니다.</p>
-                
-                <div class="space-y-4 pt-6">
-                    <div class="flex items-start">
-                        <span class="bg-sky-500/20 text-sky-400 p-2 rounded-lg mr-4 mt-1">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        </span>
-                        <div><strong class="text-white">직관적인 퍼즐:</strong> 수많은 타일 중 단 하나의 정답 패턴을 골라내는 몰입감.</div>
+                <div class="lang-node lang-active ko-text">
+                    <h4 class="text-3xl font-bold text-sky-400">모양, 색상, 방향. <br>패턴을 매칭하세요.</h4>
+                    <p class="text-gray-300 text-lg">화면 상단에 제시된 패턴을 그리드 내에서 찾아 터치하거나 드래그하세요. 스테이지가 거듭될수록 그리드는 복잡해지고, 당신의 집중력은 한계에 도달합니다.</p>
+                    <div class="space-y-4 pt-6">
+                        <div class="flex items-start text-gray-300">
+                            <span class="bg-sky-500/20 text-sky-400 p-2 rounded-lg mr-4 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                            <div><strong class="text-white">직관적인 퍼즐:</strong> 수많은 타일 중 단 하나의 정답 패턴을 골라내는 몰입감.</div>
+                        </div>
+                        <div class="flex items-start text-gray-300">
+                            <span class="bg-indigo-500/20 text-indigo-400 p-2 rounded-lg mr-4 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                            <div><strong class="text-white">빠른 판단력:</strong> 제한 시간 내에 빠르게 찾고, 정확한 패턴을 찾아내야 합니다.</div>
+                        </div>
                     </div>
-                    <div class="flex items-start">
-                        <span class="bg-indigo-500/20 text-indigo-400 p-2 rounded-lg mr-4 mt-1">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        </span>
-                        <div><strong class="text-white">빠른 판단력:</strong> 제한 시간 내에 빠르게 찾고, 정확한 패턴을 찾아내야 합니다.</div>
+                </div>
+                <div class="lang-node en-text">
+                    <h4 class="text-3xl font-bold text-sky-400">Shape, Color, Direction. <br>Match the Pattern.</h4>
+                    <p class="text-gray-300 text-lg">Locate and tap or drag the pattern shown at the top within the grid. As stages progress, grids become more complex, pushing your concentration to the limit.</p>
+                    <div class="space-y-4 pt-6">
+                        <div class="flex items-start text-gray-300">
+                            <span class="bg-sky-500/20 text-sky-400 p-2 rounded-lg mr-4 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                            <div><strong class="text-white">Intuitive Puzzle:</strong> Immersive experience of finding the single correct pattern among many tiles.</div>
+                        </div>
+                        <div class="flex items-start text-gray-300">
+                            <span class="bg-indigo-500/20 text-indigo-400 p-2 rounded-lg mr-4 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                            <div><strong class="text-white">Quick Judgment:</strong> You must find the correct pattern accurately and fast within the time limit.</div>
+                        </div>
                     </div>
                 </div>
 
@@ -66,10 +109,15 @@
 
     <section id="contact" class="py-20 px-6 bg-slate-900/50">
         <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl font-bold mb-6">Contact</h3>
-            <p class="text-gray-400 mb-8 text-lg">제휴 문의나 피드백은 언제든 환영합니다.</p>
+            <h3 class="text-3xl font-bold mb-6 lang-node lang-active ko-text">Contact</h3>
+            <h3 class="text-3xl font-bold mb-6 lang-node en-text">Contact</h3>
+            
+            <p class="text-gray-400 mb-8 text-lg lang-node lang-active ko-text">제휴 문의나 피드백은 언제든 환영합니다.</p>
+            <p class="text-gray-400 mb-8 text-lg lang-node en-text">Partnership inquiries or feedback are always welcome.</p>
+            
             <a href="mailto:zell80@gmail.com" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full transition shadow-lg shadow-sky-500/20">
-                Email Send
+                <span class="lang-node lang-active ko-text">이메일 보내기</span>
+                <span class="lang-node en-text">Send Email</span>
             </a>
         </div>
     </section>
@@ -80,5 +128,26 @@
             <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
         </div>
     </footer>
+
+    <script>
+        function setLang(lang) {
+            const koNodes = document.querySelectorAll('.ko-text');
+            const enNodes = document.querySelectorAll('.en-text');
+            const btnKo = document.getElementById('btn-ko');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'ko') {
+                koNodes.forEach(n => n.classList.add('lang-active'));
+                enNodes.forEach(n => n.classList.remove('lang-active'));
+                btnKo.className = 'px-3 py-1 rounded-md text-xs font-bold transition-all bg-sky-500 text-white shadow-sm';
+                btnEn.className = 'px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-400 hover:text-white';
+            } else {
+                enNodes.forEach(n => n.classList.add('lang-active'));
+                koNodes.forEach(n => n.classList.remove('lang-active'));
+                btnEn.className = 'px-3 py-1 rounded-md text-xs font-bold transition-all bg-sky-500 text-white shadow-sm';
+                btnKo.className = 'px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-400 hover:text-white';
+            }
+        }
+    </script>
 </body>
 </html>
