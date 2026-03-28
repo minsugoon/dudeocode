@@ -12,13 +12,11 @@
         .lang-node { display: none; }
         .lang-active { display: block; }
         
-        /* 픽셀 폰트 전용 클래스 */
         .pixel-text {
             font-family: 'NeoDunggeunmo', sans-serif;
             text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
         }
 
-        /* 테스터 카드 호버 애니메이션 */
         .tester-card {
             transition: all 0.3s ease;
         }
@@ -93,25 +91,8 @@
             <div class="w-16 h-1 bg-sky-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            
-            <div class="tester-card bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 flex items-center justify-center text-center">
-                <span class="pixel-text text-sky-100 text-lg">ROSSO</span>
-            </div>
-            
-            <div class="tester-card bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 flex items-center justify-center text-center">
-                <span class="pixel-text text-sky-100 text-lg">empty</span>
-            </div>
-
-            <div class="tester-card bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 flex items-center justify-center text-center">
-                <span class="pixel-text text-sky-100 text-lg">empty</span>
-            </div>
-
-            <div class="tester-card bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 flex items-center justify-center text-center">
-                <span class="pixel-text text-sky-100 text-lg">empty</span>
-            </div>
-
-            </div>
+        <!-- ✅ 테스터 닉네임 목록 — 여기에만 추가/수정하면 됩니다 -->
+        <div id="tester-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"></div>
     </section>
 
     <footer class="py-10 text-center text-gray-500 text-sm border-t border-slate-800 mt-auto">
@@ -119,6 +100,30 @@
     </footer>
 
     <script>
+        // ====================================================
+        // ✅ 테스터 닉네임만 이 배열에 추가하면 카드가 자동 생성됩니다
+        // ====================================================
+        const TESTERS = [
+            "ROSSO",
+            "AIRDEOK",
+            "WHITERAIN",
+            "JJOIP",
+            "WASDYWHO",
+            // "닉네임2",
+            // "닉네임3",
+            // 이런 식으로 계속 추가하세요
+        ];
+        // ====================================================
+
+        function renderTesters() {
+            const grid = document.getElementById('tester-grid');
+            grid.innerHTML = TESTERS.map(name => `
+                <div class="tester-card bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 flex items-center justify-center text-center">
+                    <span class="pixel-text text-sky-100 text-lg">${name}</span>
+                </div>
+            `).join('');
+        }
+
         function setLang(lang) {
             const koNodes = document.querySelectorAll('.ko-text');
             const enNodes = document.querySelectorAll('.en-text');
@@ -137,6 +142,8 @@
                 btnKo.className = 'px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-400 hover:text-white';
             }
         }
+
+        renderTesters();
     </script>
 </body>
 </html>
